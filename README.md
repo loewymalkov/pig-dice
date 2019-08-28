@@ -8,6 +8,7 @@ _Web Browser_
 
 | Behavior |  Input | Output |
 |:----:|:----:|:----:|
+| will reset game score count when prompted |(click event) - "Start New Gane"| (refresh page) |
 | will randomly generate a number between 1-6 | (click event) - "Roll!" | 5 |
 | will end turn when player uses button to do so, and switch to next player input | (click event) - "End turn" | next player turn, add totals, change player info display |
 | will add all numbers rolled in a single turn | 5, 6 | 11 |
