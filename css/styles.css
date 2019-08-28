@@ -1,3 +1,8 @@
 .victory {
   display: none;
 }
+
+.dice-container {
+  background-color: white;
+  text-align: center;
+}
