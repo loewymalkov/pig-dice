@@ -1,17 +1,27 @@
-//  Player constructor and prototypes
+// Dice
+
+var rollDice = function() {
+  return Math.floor(Math.random() * 6) + 1;
+}
+
+
+
+// /  Player constructor and prototypes
 function Player (playerName) {
   this.score = 0;
   this.total = 0;
   this.name = playerName;
 };
 
-Player.prototype.rollDice = function() {
-  var newRoll = Math.floor(Math.random() * 6) + 1;
+Player.prototype.updateCurrentScore = function(newRoll) {
   this.score += newRoll;
   return newRoll;
 };
 
-Player.protype.updateScores = function() {
+
+
+
+Player.prototype.displayScores = function() {
   var currentScoreToDisplay = this.score.text();
   var grandTotalToDisplay = this.total.text();
 };
@@ -27,19 +37,25 @@ Player.prototype.roll1 = function() {
 };
 
 // ui logic
+var player1 = new Player("player1");
+var player2 = new Player("player2");
 
-
-(displayDice).text(newRoll);
+// (displayDice).text(newRoll);
 
 
 // front end ui
 $(document).ready(function() {
-  var player1 = new Player(player1)
+
+
+
   $("#roll-dice").click(function(event) {
     event.preventDefault();
-    player1.rollDice();
-    console.log(newRoll)
+    var newRoll = rollDice();
+    player1.updateCurrentScore(newRoll);
     $("#displayDice").text(newRoll);
+    console.log(newRoll);
+    console.log(player1);
+    console.log(player2);
   });
 });
 
