@@ -4,7 +4,8 @@ var rollDice = function() {
   return Math.floor(Math.random() * 6) + 1;
 }
 
-
+// PLayer tracker
+var turnNumber = 1;
 
 // /  Player constructor and prototypes
 function Player (playerName) {
@@ -18,9 +19,6 @@ Player.prototype.updateCurrentScore = function(newRoll) {
   return newRoll;
 };
 
-
-
-
 Player.prototype.displayScores = function() {
   var currentScoreToDisplay = this.score.text();
   var grandTotalToDisplay = this.total.text();
@@ -29,11 +27,13 @@ Player.prototype.displayScores = function() {
 Player.prototype.endTurn = function() {
    this.total += this.score;
    this.score = 0;
-   return this.total
+   turnNumber ++;
+   return this.total;
 };
 
 Player.prototype.roll1 = function() {
   this.score = 0;
+  turnNumber ++;
 };
 
 // ui logic
@@ -47,12 +47,18 @@ var player2 = new Player("player2");
 $(document).ready(function() {
 
 
-
   $("#roll-dice").click(function(event) {
     event.preventDefault();
     var newRoll = rollDice();
-    player1.updateCurrentScore(newRoll);
-    $("#displayDice").text(newRoll);
+    if (turnNumber % 2 !== 0) {
+      player1.updateCurrentScore(newRoll);
+      $("#displayDice").text(newRoll);
+    } else if (turnNumber % 2 == 0){
+      player2.updateCurrentScore(newRoll);
+      $("#displayDice").text(newRoll);
+    } else {
+      console.log('something broke');
+    };
     console.log(newRoll);
     console.log(player1);
     console.log(player2);
