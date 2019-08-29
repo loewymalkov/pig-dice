@@ -1,8 +1,29 @@
+body {
+  font-family: monospace;
+}
+
 .victory {
   display: none;
 }
 
-.dice-container {
+#dice-box {
   background-color: white;
+  line-height: 60px;
   text-align: center;
+  margin: auto;
+  width: 50%;
+}
+
+.player-info {
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  font-family: monospace;
+  margin:
+}
+
+.middle-div {
+  margin: auto;
 }

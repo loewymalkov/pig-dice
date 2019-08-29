@@ -18,7 +18,7 @@ var displayPlayerFunction = function(turnNumber) {
 
 
 // /  Player constructor and prototypes
-function Player (playerName) {
+function Player(playerName) {
   this.score = 0;
   this.total = 0;
   this.name = playerName;
@@ -29,33 +29,24 @@ Player.prototype.updateCurrentScore = function(newRoll) {
   return newRoll;
 };
 
-// next two methods should be combined, w/ this following code in the jQuery front end calls
-// player1.displayCurrent($("#player-1-current"))
-// player1.displayTotal($("player-1-total"));
-// player2.displayCurrent($("#player-2-current"))
-// player2.displayTotal($("player-2-total"));
-Player.prototype.displayCurrent = function(outputCurrent) {
+Player.prototype.displayTotal = function(outputCurrent, outputTotal) {
   outputCurrent.text(this.score);
-};
-
-Player.prototype.displayTotal = function(outputTotal) {
-outputTotal.text(this.total);
+  outputTotal.text(this.total);
 };
 
 Player.prototype.endTurn = function() {
-   this.total += this.score;
-   this.score = 0;
-   turnNumber ++;
-   return this.total;
+  this.total += this.score;
+  this.score = 0;
+  turnNumber++;
 };
 
 Player.prototype.roll1 = function() {
   this.score = 0;
-  turnNumber ++;
+  turnNumber++;
 };
 
 Player.prototype.victory = function() {
-  if ((this.total + this.score) >= 100){
+  if ((this.total + this.score) >= 50) {
     $('.victory').show();
   }
 };
@@ -64,9 +55,6 @@ Player.prototype.victory = function() {
 // ui logic
 var player1 = new Player("player1");
 var player2 = new Player("player2");
-
-// (displayDice).text(newRoll);
-
 
 // front end ui
 $(document).ready(function() {
@@ -95,21 +83,16 @@ $(document).ready(function() {
     } else {
       console.log('something broke');
     };
-    console.log(newRoll);
-    console.log(player1);
-    console.log(player2);
     $('#current-player').html(displayPlayerFunction(turnNumber));
-    // call for display needs to be condensed
-    $("#player-1-current").text(player1.score);
-    $("#player-1-total").text(player1.total);
-    $("#player-2-current").text(player2.score);
-    $("#player-2-total").text(player2.total);
+    $('#display-winner').html(displayPlayerFunction(turnNumber))
+    player1.displayTotal($("#player-1-current"), $("#player-1-total"));
+    player2.displayTotal($("#player-2-current"), $("#player-2-total"));
   });
 
 
-  $("#end-turn").click(function(event){
+  $("#end-turn").click(function(event) {
     event.preventDefault();
-    $("#display-dice").text("");
+    $("#display-dice").text("-");
     if (turnNumber % 2 !== 0) {
       player1.endTurn();
     } else if (turnNumber % 2 == 0) {
@@ -118,24 +101,8 @@ $(document).ready(function() {
       console.log('something broke');
     };
     $('#current-player').html(displayPlayerFunction(turnNumber));
-    // needs to be condensed
-    $("#player-1-current").text(player1.score);
-    $("#player-1-total").text(player1.total);
-    $("#player-2-current").text(player2.score);
-    $("#player-2-total").text(player2.total);
+    player1.displayTotal($("#player-1-current"), $("#player-1-total"));
+    player2.displayTotal($("#player-2-current"), $("#player-2-total"));
+
   });
-  // may not be necessary
-  $("#player-1-current").text(player1.score);
-  $("#player-1-total").text(player1.total);
-  $("#player-2-current").text(player2.score);
-  $("#player-2-total").text(player2.total);
-
-
-
 });
-
-
-
-/// click endTurn
-// user clicks end turn -> endTurn -> display grand total
-// user rolls 1 -> roll1 -> endTurn -> display grand total

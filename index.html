@@ -1,38 +1,60 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <script
-    src="https://code.jquery.com/jquery-3.4.1.js"
-    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-    crossorigin="anonymous"></script>
-    <script type="text/javascript" src='js/scripts.js'></script>
-    <title>PLAY PIG DICE</title>
-  </head>
-  <body>
-    <div class="container bg-info">
-      <div class="container">
-        <h2> Player 1 </h2>
-        <p>Current Pot: <span id='player-1-current'></span></p>
-        <p>Total Stack: <span id='player-1-total'></span></p>
-        <h2> Player 2 </h2>
-        <p>Current Pot: <span id='player-2-current'></span></p>
-        <p>Total Stack: <span id='player-2-total'></span></p>
-      </div>
 
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src='js/scripts.js'></script>
+  <title>PIG DICE</title>
+</head>
 
-      <div class="container">
-        <button id="roll-dice" type="button">Roll</button>
-        <button id="end-turn" type="button">End Turn</button>
+<body>
+  <div class="container bg-info">
+    <h1>Waste your time with Pig Dice</h1>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="container bg-success" id="p1">
+          <h2> Player 1 </h2>
+          <p>Current Streak: <span id='player-1-current'></span></p>
+          <p>Total Stack: <span id='player-1-total'></span></p>
+        </div>
       </div>
-      <div class="dice-container">
-        <div id="display-dice"></div>
+      <div class="middle-div col-md-4">
+        <div id="dice-box">
+          <p id="display-dice">-</p>
+        </div>
+
       </div>
-      <p><span id='current-player'></span> Turn</p>
-      <div class="victory">
-        <p> You won </p>
+      <div class="col-md-4">
+        <div class="container bg-success" id="p2">
+          <h2> Player 2 </h2>
+          <p>Current Streak: <span id='player-2-current'></span></p>
+          <p>Total Stack: <span id='player-2-total'></span></p>
+        </div>
       </div>
     </div>
-  </body>
+    <div class="row">
+      <div class="bottom-left col-md-4">
+        <div class="container">
+          <button id="roll-dice" type="button">Roll</button>
+          <button id="end-turn" type="button">End Turn</button>
+        </div>
+      </div>
+      <div class="bottom-middle col-md-4">
+        <div class="container player-info">
+          <p><span id='current-player'></span> Turn</p>
+          <div class="victory">
+            <p><span id="display-winner"></span> won the game! </p>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-right col-md-4">
+
+      </div>
+    </div>
+
+  </div>
+</body>
+
 </html>
