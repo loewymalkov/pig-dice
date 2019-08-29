@@ -1,19 +1,16 @@
 body {
   font-family: monospace;
+  background-color: #ffffe3;
+}
+
+h1 {
+  text-align: center;
+  font-family: monospace;
+  padding: 2em;
 }
 
 .victory {
   display: none;
-}
-
-#dice-box {
-  background-color: white;
-  line-height: 80px;
-  text-align: center;
-  margin: auto;
-  width: 50%;
-  border-style: double;
-  border-color: black;
 }
 
 .current-player-info {
@@ -26,12 +23,6 @@ body {
   margin-bottom: 1em;
 }
 
-h1 {
-  text-align: center;
-  font-family: monospace;
-  padding: 2em;
-}
-
 .middle-div {
   margin: auto;
 }
@@ -39,3 +30,22 @@ h1 {
 .main-bg-color {
   background-color: #ffffe3;
 }
+
+#display-dice-roll {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+#dice-box {
+  background-color: white;
+  line-height: 80px;
+  text-align: center;
+  margin: auto;
+  width: 50%;
+  border: 4px double black;
+  border-radius: 3px;
+}
+
+/* #refresh-button {
+  : center;
+} */

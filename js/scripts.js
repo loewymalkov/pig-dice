@@ -62,20 +62,20 @@ $(document).ready(function() {
     if (turnNumber % 2 !== 0) {
       if (newRoll !== 1) {
         player1.updateCurrentScore(newRoll);
-        $("#display-dice").text(newRoll);
+        $("#display-dice-roll").text(newRoll);
         player1.victory();
       } else {
         player1.roll1();
-        $("#display-dice").text(newRoll);
+        $("#display-dice-roll").text(newRoll);
       }
     } else if (turnNumber % 2 == 0) {
       if (newRoll !== 1) {
         player2.updateCurrentScore(newRoll);
-        $("#display-dice").text(newRoll);
+        $("#display-dice-roll").text(newRoll);
         player2.victory();
       } else {
         player2.roll1();
-        $("#display-dice").text(newRoll);
+        $("#display-dice-roll").text(newRoll);
       }
     } else {
       console.log('something broke');
@@ -88,7 +88,7 @@ $(document).ready(function() {
 
   $(".end-turn").click(function(event) {
     event.preventDefault();
-    $("#display-dice").text("-");
+    $("#display-dice-roll").text("-");
     if (turnNumber % 2 !== 0) {
       player1.endTurn();
     } else if (turnNumber % 2 == 0) {
