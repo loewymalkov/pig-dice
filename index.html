@@ -10,11 +10,11 @@
 </head>
 
 <body>
-  <div class="container bg-info">
+  <div class="container main-bg-color">
     <h1>Waste your time with Pig Dice</h1>
     <div class="row">
       <div class="col-md-4">
-        <div class="container bg-success" id="p1">
+        <div class="container player-stats" id="p1">
           <h2> Player 1 </h2>
           <p>Current Streak: <span id='player-1-current'></span></p>
           <p>Total Stack: <span id='player-1-total'></span></p>
@@ -27,7 +27,7 @@
 
       </div>
       <div class="col-md-4">
-        <div class="container bg-success" id="p2">
+        <div class="container player-stats" id="p2">
           <h2> Player 2 </h2>
           <p>Current Streak: <span id='player-2-current'></span></p>
           <p>Total Stack: <span id='player-2-total'></span></p>
@@ -37,12 +37,12 @@
     <div class="row">
       <div class="bottom-left col-md-4">
         <div class="container">
-          <button id="roll-dice" type="button">Roll</button>
-          <button id="end-turn" type="button">End Turn</button>
+          <button class="roll-dice" type="button">Roll</button>
+          <button class="end-turn" type="button">End Turn</button>
         </div>
       </div>
       <div class="bottom-middle col-md-4">
-        <div class="container player-info">
+        <div class="container current-player-info">
           <p><span id='current-player'></span> Turn</p>
           <div class="victory">
             <p><span id="display-winner"></span> won the game! </p>
@@ -50,7 +50,10 @@
         </div>
       </div>
       <div class="bottom-right col-md-4">
-
+        <div class="container">
+          <button class="roll-dice" type="button">Roll</button>
+          <button class="end-turn" type="button">End Turn</button>
+        </div>
       </div>
     </div>
 

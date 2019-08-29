@@ -1,5 +1,4 @@
 // Dice
-
 var rollDice = function() {
   return Math.floor(Math.random() * 6) + 1;
 }
@@ -15,7 +14,6 @@ var displayPlayerFunction = function(turnNumber) {
   };
   return displayCurrentPlayer;
 };
-
 
 // /  Player constructor and prototypes
 function Player(playerName) {
@@ -46,11 +44,10 @@ Player.prototype.roll1 = function() {
 };
 
 Player.prototype.victory = function() {
-  if ((this.total + this.score) >= 50) {
+  if ((this.total + this.score) >= 100) {
     $('.victory').show();
   }
 };
-
 
 // ui logic
 var player1 = new Player("player1");
@@ -59,7 +56,7 @@ var player2 = new Player("player2");
 // front end ui
 $(document).ready(function() {
 
-  $("#roll-dice").click(function(event) {
+  $(".roll-dice").click(function(event) {
     event.preventDefault();
     var newRoll = rollDice();
     if (turnNumber % 2 !== 0) {
@@ -89,8 +86,7 @@ $(document).ready(function() {
     player2.displayTotal($("#player-2-current"), $("#player-2-total"));
   });
 
-
-  $("#end-turn").click(function(event) {
+  $(".end-turn").click(function(event) {
     event.preventDefault();
     $("#display-dice").text("-");
     if (turnNumber % 2 !== 0) {
